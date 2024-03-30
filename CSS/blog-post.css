@@ -1,0 +1,291 @@
+/* General */
+.blog-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 100px 50px 1fr min-content min-content 50px;
+    grid-template-areas: 
+        "hd hd"
+        "nav nav"
+        "main main"
+        "bio bio"
+        "share share"
+        "ft ft";
+}
+
+
+/* Blog Post */
+.blog-post {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background: white;
+    padding: 1rem;
+    box-shadow: 2px 2px 6px grey;
+    margin: 1rem;
+}
+
+.blog-img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    margin-bottom: 1rem;
+}
+
+
+
+.blog-intro {
+    font-weight: bold;
+    font-size: 1.1em;
+}
+
+blockquote {
+    border-left: 3px solid rgb(23, 113, 113);
+    padding: 0.5rem;
+    font-size: 1.1em;
+}
+
+article {
+    
+    grid-area: main;
+}
+
+h3 {
+    color: rgb(23, 113, 113);
+    padding: 1%;
+}
+
+
+/* Table */
+table, th, td {
+    margin: 0;
+    padding: 0;
+}
+
+table {
+    width: 80%;
+    margin: 20px auto;
+    border-collapse: collapse;
+}
+
+th {
+    background-color: #f2f2f2;
+    text-align: left;
+    padding: 8px;
+    border-bottom: 1px solid #ddd;
+}
+
+td {
+    padding: 8px;
+    border-bottom: 1px solid #ddd;
+}
+
+tbody tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+/* Ordered List */
+ol {
+    list-style: none;
+    padding: 0;
+}
+
+ol li {
+    display: flex;
+    align-items: center; /* Center vertically */
+    margin-bottom: 1.5rem;
+    background-color: #f9f9f9;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    padding: 1rem;
+}
+
+ol li img {
+    width: 100px;
+    height: auto;
+    margin-right: 1.5rem;
+    border-radius: 5px;
+    object-fit: cover; /* Adjust object-fit as needed for different screens */
+    flex-shrink: 0;
+}
+
+ol li figure {
+    margin: 0;
+    padding: 0; /* Reset padding */
+}
+
+figcaption {
+    font-style: italic;
+    font-size: 0.9em;
+    margin-top: 0.5rem;
+    align-self: flex-start;
+    max-width: 150px; /* Adjust the maximum width as needed */
+}
+
+/*Email*/
+.email-subscription {
+    max-width: 400px;
+    margin: 20px auto;
+    text-align: center;
+}
+
+label,
+input,
+button {
+    display: block;
+    width: 100%;
+    margin-bottom: 10px;
+}
+
+input[type="email"],
+button.subscribe-button {
+    padding: 8px;
+    border-radius: 4px;
+    border: 1px solid #ccc;
+    font-size: 14px;
+}
+
+button.subscribe-button {
+    padding: 10px 20px;
+    background-color: rgb(23, 113, 113);
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease-in-out;
+}
+
+button.subscribe-button:hover {
+    background-color: #0056b3;
+}
+
+/* Social */
+#share {
+    grid-area: share;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.fa {
+    height: 15px;
+    width: auto;
+    padding: 10px; 
+    margin: 5px; 
+    transition: transform 0.5s ease-in-out;
+    filter: opacity(0.6);
+    border-right: 1px dotted gray;
+}
+
+/* Bio Section */
+#bio {
+    grid-area: bio;
+    display: flex;
+    flex-direction: column;
+    max-width: 100%;
+    padding: 1rem;
+    justify-content: space-between;
+}
+
+.bio-image-container {
+    display: flex;
+    justify-content: center;
+    margin: auto 0;
+    max-width: 100%;
+}
+
+.bio-description {
+    max-width: 100%;
+}
+
+#bio-icon {
+    width: 50%;
+    border-radius: 50%;
+    border: 6px solid rgb(23, 113, 113);
+}
+
+/* Responsive Layout */
+@media(min-width: 900px) {
+    .blog-container {
+        grid-template-columns: repeat(8, 1fr);
+        grid-template-rows: 100px 1fr 1fr 1fr 50px;
+        grid-template-areas: 
+            "hd hd hd hd hd hd hd hd"
+            "main main main main main main nav nav"
+            "main main main main main main bio bio"
+            "main main main main main main share share"
+            "ft ft ft ft ft ft ft ft";
+    }
+
+    /* Content */
+    .blog-post {
+        margin: 2rem;
+        padding: 2rem;
+    }
+
+    .sidebar {
+        max-width: 80%;
+    }
+
+    blockquote {
+        padding: 1rem;
+        font-size: 1.2em;
+    }
+
+    /* Bio Section */
+    #bio {
+        justify-content: flex-start;
+        padding-top: 5rem;
+        max-width: 80%;
+        grid-row-start: 2;
+        margin-top: 3rem;
+        z-index: -1;
+    }
+
+    #bio-icon {
+        max-width: 70%;
+    }
+
+    .bio-image-container {
+        display: flex;
+        justify-content: center;
+        margin: 0 auto;
+        max-width: 100%;
+    }
+
+    .bio-description {
+        max-width: 100%;
+    }
+
+    /* Social */
+    #share {
+        grid-row-start: 2;
+        width: 80%;
+    }
+
+    ol li figure {
+        display: flex;
+        align-items: flex-start;
+        justify-content: flex-start; /* Align both items to the start */
+        margin-bottom: 6px;
+    }
+
+    figcaption {
+        margin-top: 0;
+        padding: 2px;
+        margin-bottom: 0; /* Ensure no bottom margin */
+    }
+
+    ol li img {
+        width: 220px; /* Adjust the width */
+        margin-right: 30px; /* Adjust margin if necessary */
+    }
+}
+
+@media (max-width: 599px) {
+    /* Make images smaller for screens below 600px */
+    ol li img {
+        width: 80px; /* Adjust the width for smaller screens */
+        margin-right: 20px; /* Adjust margin if necessary */
+    }
+}
